@@ -2,7 +2,7 @@ import { render } from '@czechitas/render';
 import '../global.css';
 import './index.css';
 
-const response = await fetch("http://localhost:4000/api/studenti")
+const response = await fetch("http://localhost:4000/api/dorty")
 const json = await response.json()
 const dorty = json.data
 
@@ -14,7 +14,7 @@ const handleMovie = async () => {
     image_url: "http: //denikmalepozitkarky.cz/wp-content/uploads/IMG_2758-1140x760.jpg"
   }
 
-  await fetch("http://localhost:4000/api/studenti", {
+  await fetch("http://localhost:4000/api/dorty", {
     method: "POST", 
     headers: {
       "Content-Type": "application/json"

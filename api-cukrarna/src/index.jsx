@@ -1,6 +1,4 @@
 import { render } from '@czechitas/render';
-import '../global.css';
-import './index.css';
 import { HomePage } from './components/HomePage';
 const response = await fetch("http://localhost:4000/api/dorty");
 const json = await response.json();

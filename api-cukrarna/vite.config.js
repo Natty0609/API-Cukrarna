@@ -1,7 +1,21 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { czechitasRenderVitePlugin } from '@czechitas/render/plugin';
+import { glob } from 'glob';
+import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+    root: 'src/pages',
+    publicDir: '../../public',
+    server: {
+        hmr: false,
+    },
+    build: {
+        outDir: '../../dist',
+        emptyOutDir: true,
+        target: 'es2022',
+        rollupOptions: {
+            input: glob.sync('src/pages/**/*.html'),
+        },
+        modulePreload: false,
+    },
+    plugins: [czechitasRenderVitePlugin()],
+});
